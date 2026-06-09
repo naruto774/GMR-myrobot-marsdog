@@ -1,0 +1,58 @@
+机器人部位,运动学父节点 (Parent),源 BVH 骨骼层级 (Source),目标 URDF Link 层级 (Target)
+"全局基座
+(Base)",World / None,root,base_link
+"腰部 / 脊椎
+(Waist/Spine)",挂载于 root / base_link,"NewBone_1
+NewBone_2
+NewBone_7","waist_roll_link
+waist_pitch_link
+waist_yaw_link"
+"左后腿
+(Rear Left)",挂载于 root / base_link,"hip_L
+NewBone_3
+NewBone_4
+NewBone_5
+NewBone_6","rl_hip_link
+rl_thigh_link
+rl_calf_link
+rl_tarsus_link
+rl_foot_link"
+"右后腿
+(Rear Right)",挂载于 root / base_link,"hip_R
+NewBone_8
+NewBone_9
+NewBone_10
+NewBone_11","rr_hip_link
+rr_thigh_link
+rr_calf_link
+rr_tarsus_link
+rr_foot_link"
+"左前腿
+(Front Left)",挂载于 NewBone_7 / waist_yaw_link,"Should_L
+NewBone_13
+NewBone_14
+NewBone_15
+NewBone_16","fl_hip_pitch_link
+fl_thigh_roll_link
+fl_calf_link
+fl_tarsus_link
+fl_foot_link"
+"右前腿
+(Front Right)",挂载于 NewBone_7 / waist_yaw_link,"Should_R
+NewBone_17
+NewBone_18
+NewBone_19
+NewBone_20","fr_hip_pitch_link
+fr_thigh_roll_link
+fr_calf_link
+fr_tarsus_link
+fr_foot_link"
+"颈部 / 头部
+(Neck/Head)",挂载于 NewBone_7 / waist_yaw_link,"NewBone_12
+NewBone_21
+NewBone_22","neck_pitch_link
+head_roll_link
+head_yaw_link
+head_pitch_link"
+"尾部
+(Tail)",base_link 后方,无对应数据,tail1_link $tail12_link

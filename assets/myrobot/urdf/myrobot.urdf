@@ -1,0 +1,1193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="myrobot-20260312_6.SLDASM">
+  <mujoco>
+    <compiler
+    meshdir="../meshes/"
+    balanceinertia="true"
+    discardvisual="true" /> 
+  </mujoco> 
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.0086455 -7.0328E-05 0.016087"
+        rpy="0 0 0" />
+      <mass
+        value="0.24381" />
+      <inertia
+        ixx="0.000183"
+        ixy="0"
+        ixz="6E-06"
+        iyy="0.000161"
+        iyz="0"
+        izz="0.000108" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/elephant/robot/unitree_rl_lab-main/source/robots/myRobot_URDF_0313/meshes/base_link.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.005 0 0.04"
+        rpy="0 0 0" />
+      <geometry>
+        <box size="0.05 0.04 0.1" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="right_hip_pitch">
+    <inertial>
+      <origin
+        xyz="0.0072235 -0.022121 0.0090332"
+        rpy="0 0 0" />
+      <mass
+        value="0.12008" />
+      <inertia
+        ixx="3E-05"
+        ixy="-2E-06"
+        ixz="9E-06"
+        iyy="4E-05"
+        iyz="-2E-06"
+        izz="2.9E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/elephant/robot/unitree_rl_lab-main/source/robots/myRobot_URDF_0313/meshes/right_hip_pitch_link.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+  </link>
+  <joint
+    name="right_hip_pitch"
+    type="revolute">
+    <origin
+      xyz="0 -0.0255 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_hip_pitch" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.5"
+      upper="1.2"
+      effort="1.96"
+      velocity="17.7" />
+  </joint>
+  <link
+    name="right_hip_roll">
+    <inertial>
+      <origin
+        xyz="0.0089238 -0.00087248 -0.044521"
+        rpy="0 0 0" />
+      <mass
+        value="0.12745" />
+      <inertia
+        ixx="5.1E-05"
+        ixy="0"
+        ixz="1E-06"
+        iyy="7.3E-05"
+        iyz="-1E-05"
+        izz="4E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/elephant/robot/unitree_rl_lab-main/source/robots/myRobot_URDF_0313/meshes/right_hip_roll_link.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.01 0 -0.04"
+        rpy="0 0 0" />
+      <geometry>
+        <box size="0.04 0.04 0.05" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_hip_roll"
+    type="revolute">
+    <origin
+      xyz="0 -0.025051 0"
+      rpy="0 0 0" />
+    <parent
+      link="right_hip_pitch" />
+    <child
+      link="right_hip_roll" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-0.5"
+      upper="0.5"
+      effort="1.96"
+      velocity="17.7" />
+  </joint>
+  <link
+    name="right_hip_yaw">
+    <inertial>
+      <origin
+        xyz="0.0091242 2.0459E-06 -0.021973"
+        rpy="0 0 0" />
+      <mass
+        value="0.11639" />
+      <inertia
+        ixx="2.8E-05"
+        ixy="0"
+        ixz="-2E-06"
+        iyy="3E-05"
+        iyz="0"
+        izz="4E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/elephant/robot/unitree_rl_lab-main/source/robots/myRobot_URDF_0313/meshes/right_hip_yaw_link.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+  </link>
+  <joint
+    name="right_hip_yaw"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.06765"
+      rpy="0 0 0" />
+    <parent
+      link="right_hip_roll" />
+    <child
+      link="right_hip_yaw" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.6"
+      upper="0.6"
+      effort="1.96"
+      velocity="17.7" />
+  </joint>
+  <link
+    name="right_knee">
+    <inertial>
+      <origin
+        xyz="0.0003913 0.0032838 -0.052807"
+        rpy="0 0 0" />
+      <mass
+        value="0.14889" />
+      <inertia
+        ixx="0.000157"
+        ixy="0"
+        ixz="1E-06"
+        iyy="0.000133"
+        iyz="-1E-05"
+        izz="5.4E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/elephant/robot/unitree_rl_lab-main/source/robots/myRobot_URDF_0313/meshes/right_knee_link.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.002 0.007 -0.05"
+        rpy="0 0 0" />
+      <geometry>
+         <box size="0.04 0.05 0.13" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_knee"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.024275"
+      rpy="0 0 0" />
+    <parent
+      link="right_hip_yaw" />
+    <child
+      link="right_knee" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-0.2"
+      upper="1.8"
+      effort="1.96"
+      velocity="17.7" />
+  </joint>
+  <link
+    name="right_ankle_pitch">
+    <inertial>
+      <origin
+        xyz="0.00025641 0.002877 0.0055643"
+        rpy="0 0 0" />
+      <mass
+        value="0.049665" />
+      <inertia
+        ixx="9E-06"
+        ixy="0"
+        ixz="0"
+        iyy="1E-05"
+        iyz="-1E-06"
+        izz="8E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/elephant/robot/unitree_rl_lab-main/source/robots/myRobot_URDF_0313/meshes/right_ankle_pitch_link.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+  </link>
+  <joint
+    name="right_ankle_pitch"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.1034"
+      rpy="0 0 0" />
+    <parent
+      link="right_knee" />
+    <child
+      link="right_ankle_pitch" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-0.8"
+      upper="0.8"
+      effort="2.942"
+      velocity="14.6608" />
+  </joint>
+  <link
+    name="right_ankle_roll">
+    <inertial>
+      <origin
+        xyz="0.0015463 3.139E-05 -0.0308"
+        rpy="0 0 0" />
+      <mass
+        value="0.046131" />
+      <inertia
+        ixx="1.8E-05"
+        ixy="0"
+        ixz="4E-06"
+        iyy="3.3E-05"
+        iyz="0"
+        izz="2.9E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/elephant/robot/unitree_rl_lab-main/source/robots/myRobot_URDF_0313/meshes/right_ankle_roll_link.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision name="r_foot">
+      <origin rpy="0 1.5708 0" xyz="0.005 0.0 -0.043" />
+      <geometry>
+          <box size="0.011 0.045 0.075" />
+      </geometry>
+    </collision>
+  
+  </link>
+  <joint
+    name="right_ankle_roll"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="right_ankle_pitch" />
+    <child
+      link="right_ankle_roll" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-0.4"
+      upper="0.4"
+      effort="2.942"
+      velocity="14.6608" />
+  </joint>
+  <link
+    name="left_hip_pitch">
+    <inertial>
+      <origin
+        xyz="0.0072614 0.023035 0.0090137"
+        rpy="0 0 0" />
+      <mass
+        value="0.12003" />
+      <inertia
+        ixx="3E-05"
+        ixy="2E-06"
+        ixz="1E-06"
+        iyy="4E-05"
+        iyz="2E-06"
+        izz="2.9E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/elephant/robot/unitree_rl_lab-main/source/robots/myRobot_URDF_0313/meshes/left_hip_pitch_link.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+  </link>
+  <joint
+    name="left_hip_pitch"
+    type="revolute">
+    <origin
+      xyz="0 0.0246 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_hip_pitch" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.5"
+      upper="1.2"
+      effort="1.96"
+      velocity="17.7" />
+  </joint>
+  <link
+    name="left_hip_roll">
+    <inertial>
+      <origin
+        xyz="0.0089461 0.00088223 -0.04455"
+        rpy="0 0 0" />
+      <mass
+        value="0.12748" />
+      <inertia
+        ixx="5.1E-05"
+        ixy="0"
+        ixz="1E-06"
+        iyy="7.3E-05"
+        iyz="1E-06"
+        izz="4E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/elephant/robot/unitree_rl_lab-main/source/robots/myRobot_URDF_0313/meshes/left_hip_roll_link.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.01 0 -0.04"
+        rpy="0 0 0" />
+      <geometry>
+        <box size="0.04 0.04 0.05" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_hip_roll"
+    type="revolute">
+    <origin
+      xyz="0 0.025951 0"
+      rpy="0 0 0" />
+    <parent
+      link="left_hip_pitch" />
+    <child
+      link="left_hip_roll" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-0.5"
+      upper="0.5"
+      effort="1.96"
+      velocity="17.7" />
+  </joint>
+  <link
+    name="left_hip_yaw">
+    <inertial>
+      <origin
+        xyz="0.009124 -1.5534E-06 -0.017423"
+        rpy="0 0 0" />
+      <mass
+        value="0.11639" />
+      <inertia
+        ixx="2.8E-05"
+        ixy="0"
+        ixz="-2E-06"
+        iyy="3E-05"
+        iyz="0"
+        izz="4E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/elephant/robot/unitree_rl_lab-main/source/robots/myRobot_URDF_0313/meshes/left_hip_yaw_link.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+  </link>
+  <joint
+    name="left_hip_yaw"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.0722"
+      rpy="0 0 0" />
+    <parent
+      link="left_hip_roll" />
+    <child
+      link="left_hip_yaw" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.6"
+      upper="0.6"
+      effort="1.96"
+      velocity="17.7" />
+  </joint>
+  <link
+    name="left_knee">
+    <inertial>
+      <origin
+        xyz="0.00039184 -0.0033037 -0.052775"
+        rpy="0 0 0" />
+      <mass
+        value="0.14881" />
+      <inertia
+        ixx="0.000157"
+        ixy="0"
+        ixz="1E-06"
+        iyy="0.000133"
+        iyz="1E-05"
+        izz="5.4E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/elephant/robot/unitree_rl_lab-main/source/robots/myRobot_URDF_0313/meshes/left_knee_link.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.002 -0.007 -0.05"
+        rpy="0 0 0" />
+      <geometry>
+        <box size="0.04 0.05 0.13" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_knee"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.019725"
+      rpy="0 0 0" />
+    <parent
+      link="left_hip_yaw" />
+    <child
+      link="left_knee" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-0.2"
+      upper="1.8"
+      effort="1.96"
+      velocity="17.7" />
+  </joint>
+  <link
+    name="left_ankle_pitch">
+    <inertial>
+      <origin
+        xyz="0.00025488 -0.0028766 0.005565"
+        rpy="0 0 0" />
+      <mass
+        value="0.049659" />
+      <inertia
+        ixx="9E-06"
+        ixy="0"
+        ixz="0"
+        iyy="1E-05"
+        iyz="1E-06"
+        izz="8E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/elephant/robot/unitree_rl_lab-main/source/robots/myRobot_URDF_0313/meshes/left_ankle_pitch_link.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+  </link>
+  <joint
+    name="left_ankle_pitch"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.1034"
+      rpy="0 0 0" />
+    <parent
+      link="left_knee" />
+    <child
+      link="left_ankle_pitch" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-0.8"
+      upper="0.8"
+      effort="2.942"
+      velocity="14.6608" />
+  </joint>
+  <link
+    name="left_ankle_roll">
+    <inertial>
+      <origin
+        xyz="0.0015451 -3.2861E-05 -0.030801"
+        rpy="0 0 0" />
+      <mass
+        value="0.046134" />
+      <inertia
+        ixx="1.8E-05"
+        ixy="0"
+        ixz="4E-06"
+        iyy="3.3E-05"
+        iyz="0"
+        izz="2.9E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/elephant/robot/unitree_rl_lab-main/source/robots/myRobot_URDF_0313/meshes/left_ankle_roll_link.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+
+    <collision name="l_foot">
+      <origin rpy="0 1.5708 0" xyz="0.005 0.0 -0.043" />
+      <geometry>
+          <box size="0.011 0.045 0.075" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_ankle_roll"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="left_ankle_pitch" />
+    <child
+      link="left_ankle_roll" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-0.4"
+      upper="0.4"
+      effort="2.942"
+      velocity="14.6608" />
+  </joint>
+  <link
+    name="waist_pitch">
+    <inertial>
+      <origin
+        xyz="-0.011932 -0.00019894 0.0025083"
+        rpy="0 0 0" />
+      <mass
+        value="0.1034" />
+      <inertia
+        ixx="1.7E-05"
+        ixy="0"
+        ixz="2E-06"
+        iyy="3E-05"
+        iyz="0"
+        izz="2.9E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/elephant/robot/unitree_rl_lab-main/source/robots/myRobot_URDF_0313/meshes/waist_pitch_link.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <!-- <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/elephant/robot/unitree_rl_lab-main/source/robots/myRobot_URDF_0313/meshes/waist_pitch_link.stl" />
+      </geometry>
+    </collision> -->
+  </link>
+  <joint
+    name="waist_pitch"
+    type="revolute">
+    <origin
+      xyz="0.01 0 0.069"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="waist_pitch" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-0.8"
+      upper="0.8"
+      effort="2.94"
+      velocity="4.712" />
+  </joint>
+  <link
+    name="waist_yaw">
+    <inertial>
+      <origin
+        xyz="-0.010109 7.0289E-06 0.063605"
+        rpy="0 0 0" />
+      <mass
+        value="0.62386" />
+      <inertia
+        ixx="0.000968"
+        ixy="0"
+        ixz="5E-06"
+        iyy="0.000476"
+        iyz="-1E-06"
+        izz="0.00089" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/elephant/robot/unitree_rl_lab-main/source/robots/myRobot_URDF_0313/meshes/waist_yaw_link.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0.06"
+        rpy="0 0 0" />
+      <geometry>
+        <box size="0.05 0.1 0.05" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="waist_yaw"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="waist_pitch" />
+    <child
+      link="waist_yaw" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.8"
+      upper="0.8"
+      effort="2.94"
+      velocity="4.712" />
+  </joint>
+  <link
+    name="right_shoulder_pitch">
+    <inertial>
+      <origin
+        xyz="0.00020277 -0.16696 2.6745E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.02394" />
+      <inertia
+        ixx="5E-06"
+        ixy="0"
+        ixz="0"
+        iyy="9E-06"
+        iyz="0"
+        izz="1.1E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/elephant/robot/unitree_rl_lab-main/source/robots/myRobot_URDF_0313/meshes/right_shoulder_pitch_link.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+  </link>
+  <joint
+    name="right_shoulder_pitch"
+    type="revolute">
+    <origin
+      xyz="0 0.09 0.07826"
+      rpy="0 0 0" />
+    <parent
+      link="waist_yaw" />
+    <child
+      link="right_shoulder_pitch" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-0.8"
+      upper="0.8"
+      effort="1.96"
+      velocity="17.7" />
+  </joint>
+  <link
+    name="right_shoulder_roll">
+    <inertial>
+      <origin
+        xyz="-0.0002677 5.7571E-05 -0.028251"
+        rpy="-0.3 0 0" />
+      <mass
+        value="0.10544" />
+      <inertia
+        ixx="8.6E-05"
+        ixy="0"
+        ixz="0"
+        iyy="8.9E-05"
+        iyz="0"
+        izz="1.9E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/elephant/robot/unitree_rl_lab-main/source/robots/myRobot_URDF_0313/meshes/right_shoulder_roll_link.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 -0.025"
+        rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.012" length="0.04"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_shoulder_roll"
+    type="revolute">
+    <origin
+      xyz="0 -0.18 0"
+      rpy="-0.3 0 0" />
+    <parent
+      link="right_shoulder_pitch" />
+    <child
+      link="right_shoulder_roll" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-0.8"
+      upper="0.8"
+      effort="2.942"
+      velocity="4.712" />
+  </joint>
+  <link
+    name="right_elbow">
+    <inertial>
+      <origin
+        xyz="0.00032502 3.9383E-05 -0.030193"
+        rpy="0 0 0" />
+      <mass
+        value="0.021804" />
+      <inertia
+        ixx="1.4E-05"
+        ixy="0"
+        ixz="0"
+        iyy="1.6E-05"
+        iyz="0"
+        izz="6E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/elephant/robot/unitree_rl_lab-main/source/robots/myRobot_URDF_0313/meshes/right_elbow_link.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="-0.0 0 -0.03"
+        rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.012" length="0.04"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_elbow"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.07"
+      rpy="0 0 0" />
+    <parent
+      link="right_shoulder_roll" />
+    <child
+      link="right_elbow" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-0.8"
+      upper="0.8"
+      effort="0.441"
+      velocity="11.62" />
+  </joint>
+  <link
+    name="left_shoulder_pitch">
+    <inertial>
+      <origin
+        xyz="6.783E-05 0.13665 1.6441E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.016394" />
+      <inertia
+        ixx="3E-06"
+        ixy="0"
+        ixz="0"
+        iyy="5E-06"
+        iyz="0"
+        izz="7E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/elephant/robot/unitree_rl_lab-main/source/robots/myRobot_URDF_0313/meshes/left_shoulder_pitch_link.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <!-- <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/elephant/robot/unitree_rl_lab-main/source/robots/myRobot_URDF_0313/meshes/left_shoulder_pitch_link.stl" />
+      </geometry>
+    </collision> -->
+  </link>
+  <joint
+    name="left_shoulder_pitch"
+    type="revolute">
+    <origin
+      xyz="0 -0.061 0.07826"
+      rpy="0 0 0" />
+    <parent
+      link="waist_yaw" />
+    <child
+      link="left_shoulder_pitch" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-0.8"
+      upper="0.8"
+      effort="1.96"
+      velocity="17.7" />
+  </joint>
+  <link
+    name="left_shoulder_roll">
+    <inertial>
+      <origin
+        xyz="-0.00026756 -5.7515E-05 -0.02825"
+        rpy="0.0 0 0" />
+      <mass
+        value="0.10543" />
+      <inertia
+        ixx="8.6E-05"
+        ixy="0"
+        ixz="0"
+        iyy="8.9E-05"
+        iyz="0"
+        izz="1.9E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/elephant/robot/unitree_rl_lab-main/source/robots/myRobot_URDF_0313/meshes/left_shoulder_roll_link.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 -0.025"
+        rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.01" length="0.04"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_shoulder_roll"
+    type="revolute">
+    <origin
+      xyz="0 0.151 0"
+      rpy="0.3 0 0" />
+    <parent
+      link="left_shoulder_pitch" />
+    <child
+      link="left_shoulder_roll" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-0.8"
+      upper="0.8"
+      effort="2.942"
+      velocity="4.712" />
+  </joint>
+  <link
+    name="left_elbow">
+    <inertial>
+      <origin
+        xyz="0.00032614 -3.9103E-05 -0.030193"
+        rpy="0 0 0" />
+      <mass
+        value="0.021802" />
+      <inertia
+        ixx="1.4E-05"
+        ixy="0"
+        ixz="0"
+        iyy="1.6E-05"
+        iyz="0"
+        izz="6E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/elephant/robot/unitree_rl_lab-main/source/robots/myRobot_URDF_0313/meshes/left_elbow_link.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 -0.03"
+        rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.012" length="0.04"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_elbow"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.07"
+      rpy="0 0 0" />
+    <parent
+      link="left_shoulder_roll" />
+    <child
+      link="left_elbow" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-0.8"
+      upper="0.8"
+      effort="0.441"
+      velocity="11.62" />
+  </joint>
+  <link
+    name="head">
+    <inertial>
+      <origin
+        xyz="0.0013916 -0.00097519 0.041829"
+        rpy="0 0 0" />
+      <mass
+        value="0.066764" />
+      <inertia
+        ixx="2.8E-05"
+        ixy="0"
+        ixz="0"
+        iyy="2.8E-05"
+        iyz="0"
+        izz="2.5E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/elephant/robot/unitree_rl_lab-main/source/robots/myRobot_URDF_0313/meshes/head_Link.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0.03"
+        rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.021"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="head_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 0.10466"
+      rpy="0 0 0" />
+    <parent
+      link="waist_yaw" />
+    <child
+      link="head" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0.441"
+      velocity="11.62" />
+  </joint>
+</robot>
