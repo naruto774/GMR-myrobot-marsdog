@@ -7,6 +7,17 @@ import general_motion_retargeting.utils.lafan_vendor.utils as utils
 from general_motion_retargeting.utils.lafan_vendor.extract import read_bvh
 
 
+def _resolve_root_name(frames, root_name=None):
+    if root_name is not None:
+        if root_name not in frames[0]:
+            raise KeyError(f"Root bone not found in BVH pose: {root_name}")
+        return root_name
+    for candidate in ("Hips", "root"):
+        if candidate in frames[0]:
+            return candidate
+    return next(iter(frames[0]))
+
+
 def _read_bvh_fps(bvh_file):
     with open(bvh_file, "r") as f:
         for line in f:
@@ -16,7 +27,7 @@ def _read_bvh_fps(bvh_file):
     return 30
 
 
-def load_dog_bvh_file(bvh_file, robot_body_length=0.50):
+def load_dog_bvh_file(bvh_file, robot_body_length=0.50, root_name=None):
     """
     Load quadruped dog BVH motion for GMR retargeting.
 
@@ -41,7 +52,12 @@ def load_dog_bvh_file(bvh_file, robot_body_length=0.50):
             result[bone] = (position.copy(), orientation.copy())
         frames.append(result)
 
-    root_offset = frames[0]["root"][0].copy()
+    # 仅把首帧 root 的水平位置(X, Y)平移到原点，便于观察；
+    # 绝对竖直高度(Z, 即经 Y-up->Z-up 旋转后的 MuJoCo 上轴)必须保留，
+    # 否则 root 被钉在 z=0、躯干悬在其下方，四足会整体扎进地面以下。
+    root_name = _resolve_root_name(frames, root_name)
+    root_offset = frames[0][root_name][0].copy()
+    root_offset[2] = 0.0  # 保留高度，避免机器狗陷入地面
     for frame in frames:
         for bone in frame:
             pos, quat = frame[bone]

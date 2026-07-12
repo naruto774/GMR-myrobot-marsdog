@@ -10,6 +10,10 @@ from tqdm import tqdm
 from general_motion_retargeting import GeneralMotionRetargeting as GMR
 from general_motion_retargeting import RobotMotionViewer
 from general_motion_retargeting.utils.dog_bvh import load_dog_bvh_file
+from general_motion_retargeting.utils.marsdog_axis import (
+    MARSDOG_AXIS_CORRECTION_QUAT_WXYZ,
+    apply_marsdog_axis_correction_to_frames,
+)
 
 
 if __name__ == "__main__":
@@ -22,13 +26,13 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--robot",
-        choices=["marsdog"],
+        choices=["marsdog", "unitree_go1"],
         default="marsdog",
     )
     parser.add_argument(
         "--robot_body_length",
         type=float,
-        default=0.50,
+        default=0.4,
         help="Target marsdog body length in meters (BVH reference is 0.70 m).",
     )
     parser.add_argument(
@@ -70,6 +74,9 @@ if __name__ == "__main__":
         args.bvh_file,
         robot_body_length=args.robot_body_length,
     )
+    if args.robot == "marsdog":
+        dog_frames = apply_marsdog_axis_correction_to_frames(dog_frames)
+
     motion_fps = args.motion_fps if args.motion_fps is not None else bvh_fps
 
     retargeter = GMR(
@@ -92,6 +99,8 @@ if __name__ == "__main__":
 
     print(f"mocap_frame_rate: {motion_fps}")
     print(f"body_length_scale: {actual_body_length} / 0.70")
+    if args.robot == "marsdog":
+        print(f"marsdog_axis_correction_wxyz: {MARSDOG_AXIS_CORRECTION_QUAT_WXYZ}")
 
     pbar = tqdm(total=len(dog_frames), desc="Retargeting")
 

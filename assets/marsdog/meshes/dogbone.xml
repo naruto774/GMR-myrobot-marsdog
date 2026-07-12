@@ -1,0 +1,404 @@
+<mujoco model="marsdog">
+  <compiler angle="radian" meshdir="." autolimits="true"/>
+  <default>
+    <default class="marsdog">
+      <default class="visual">
+        <geom type="mesh" contype="0" conaffinity="0" group="2" density="0" material="body"/>
+      </default>
+      <default class="collision">
+        <geom group="3" contype="1" conaffinity="1"/>
+      </default>
+    </default>
+  </default>
+  <asset>
+    <material name="body" rgba="0.898039 0.917647 0.929412 1"/>
+    <mesh name="base_link" file="base_link.STL" />
+    <mesh name="imu_link" file="imu_link.STL" />
+    <mesh name="tail1_link" file="tail1_link.STL" />
+    <mesh name="tail2_link" file="tail2_link.STL" />
+    <mesh name="tail3_link" file="tail3_link.STL" />
+    <mesh name="tail4_link" file="tail4_link.STL" />
+    <mesh name="tail5_link" file="tail5_link.STL" />
+    <mesh name="tail6_link" file="tail6_link.STL" />
+    <mesh name="tail7_link" file="tail7_link.STL" />
+    <mesh name="tail8_link" file="tail8_link.STL" />
+    <mesh name="tail9_link" file="tail9_link.STL" />
+    <mesh name="tail10_link" file="tail10_link.STL" />
+    <mesh name="tail11_link" file="tail11_link.STL" />
+    <mesh name="tail12_link" file="tail12_link.STL" />
+    <mesh name="rl_hip_link" file="rl_hip_link.STL" />
+    <mesh name="rl_thigh_link" file="rl_thigh_link.STL" />
+    <mesh name="rl_calf_link" file="rl_calf_link.STL" />
+    <mesh name="rl_tarsus_link" file="rl_tarsus_link.STL" />
+    <mesh name="rl_foot_link" file="rl_foot_link.STL" />
+    <mesh name="rr_hip_link" file="rr_hip_link.STL" />
+    <mesh name="rr_thigh_link" file="rr_thigh_link.STL" />
+    <mesh name="rr_calf_link" file="rr_calf_link.STL" />
+    <mesh name="rr_tarsus_link" file="rr_tarsus_link.STL" />
+    <mesh name="rr_foot_link" file="rr_foot_link.STL" />
+    <mesh name="waist_roll_link" file="waist_roll_link.STL" />
+    <mesh name="waist_pitch_link" file="waist_pitch_link.STL" />
+    <mesh name="waist_yaw_link" file="waist_yaw_link.STL" />
+    <mesh name="neck_pitch_link" file="neck_pitch_link.STL" />
+    <mesh name="head_roll_link" file="head_roll_link.STL" />
+    <mesh name="head_yaw_link" file="head_yaw_link.STL" />
+    <mesh name="head_pitch_link" file="head_pitch_link.STL" />
+    <mesh name="fl_hip_pitch_link" file="fl_hip_pitch_link.STL" />
+    <mesh name="fl_thigh_roll_link" file="fl_thigh_roll_link.STL" />
+    <mesh name="fl_calf_link" file="fl_calf_link.STL" />
+    <mesh name="fl_tarsus_link" file="fl_tarsus_link.STL" />
+    <mesh name="fl_foot_link" file="fl_foot_link.STL" />
+    <mesh name="fr_hip_pitch_link" file="fr_hip_pitch_link.STL" />
+    <mesh name="fr_thigh_roll_link" file="fr_thigh_roll_link.STL" />
+    <mesh name="fr_calf_link" file="fr_calf_link.STL" />
+    <mesh name="fr_tarsus_link" file="fr_tarsus_link.STL" />
+    <mesh name="fr_foot_link" file="fr_foot_link.STL" />
+  </asset>
+  <worldbody>      
+    <body name="base_link" pos="0 0 0" childclass="marsdog">
+      <freejoint name="base_link"/>
+      <inertial pos="-0.013554 0.000373 0.001080" mass="2.875" fullinertia="0.008005838 0.013668028 0.009240322 0.000066867 0.003619324 -0.000048830" />
+      <geom class="visual" type="cylinder" size="0.01 0.06" pos="0.021722 0.0 -0.009186" euler="0 1.22172569 0"/>
+      <!-- <geom pos="0.0350059 0 -0.065279" euler="0 0 0" contype="0" conaffinity="0" group="2" rgba="0.15 0.15 0.15 1" type="box" size="0.045 0.05 0.03"/> -->
+      <geom name="base_hip_r_collision" class="collision" type="cylinder" size="0.032 0.035" pos="-0.021722 0.0335 -0.009186" euler="0 1.22172569 0"/>
+      <geom name="base_hip_l_collision" class="collision" type="cylinder" size="0.032 0.035" pos="-0.021722 -0.0335 -0.009186" euler="0 1.22172569 0"/>
+      <geom name="base_rear_collision" class="collision" type="box" size="0.0745 0.0325 0.0375" pos="-0.081722 0 0.0462" euler="0 0 0"/>
+      <geom name="base_front_collision" class="collision" type="cylinder" size="0.04 0.025" pos="0.030059 0 0.028279" euler="0 1.57079632679 0"/>
+      <geom name="base_battery_collision" class="collision" type="box" size="0.045 0.05 0.03" pos="0.0350059 0 -0.065279" euler="0 0 0"/>
+
+      <!-- ==================== IMU (fixed) ==================== -->
+      <!-- <body name="imu_link" pos="0.034059 -0.00020534 -0.015067" euler="-0.001365 0 0">
+        <inertial pos="-6.93889390390723E-18 0 0" mass="2.51327412287186E-05" fullinertia="3.35103216382916E-11 3.35103216382916E-11 5.02654824574372E-11 1.5694542800438E-43 1.20912661957474E-27 -4.41762106923767E-28" />
+        <site name="imu" size="0.01" pos="0 0 0"/>
+        
+      </body> -->
+
+      <!-- ==================== TAIL CHAIN (12 segments, each pitch+yaw via virtual link) ==================== -->
+      <body name="tail1_virtual_link" pos="-0.16794 -8.4332E-05 0.033174" euler="-0.00029343 -0.13963 0.00083919">
+        <!-- <joint name="tail1_pitch_joint" type="hinge" range="-0.3 0.3" axis="0 1 0" /> -->
+        <inertial pos="0 0 0" mass="0.0001" fullinertia="1e-9 1e-9 1e-9 0 0 0" />
+        <body name="tail1_link" pos="0 0 0" euler="0 0 0">
+          <!-- <joint name="tail1_yaw_joint" type="hinge" range="-0.3 0.3" axis="0 0 1" /> -->
+          <inertial pos="-0.00762274422412546 4.59468082539272E-08 8.03588656728138E-09" mass="0.0141851775235556" fullinertia="8.34744427360573E-07 6.99096415891827E-07 6.99051973482161E-07 4.83516448208726E-12 -8.10571938743082E-12 -8.1465996643223E-12" />
+          <geom class="visual" mesh="tail1_link"/>
+          <geom name="tail1_collision" class="collision" type="cylinder" size="0.0112 0.01115" pos="-0.00899 0 0" euler="0 1.57079632679 0"/>
+          <body name="tail2_virtual_link" pos="-0.018124 0 0" euler="0 0 0">
+            <!-- <joint name="tail2_pitch_joint" type="hinge" range="-1.0472 1.0472" axis="0 1 0" /> -->
+            <inertial pos="0 0 0" mass="0.0001" fullinertia="1e-9 1e-9 1e-9 0 0 0" />
+            <body name="tail2_link" pos="0 0 0" euler="0 0 0">
+              <!-- <joint name="tail2_yaw_joint" type="hinge" range="-1.0472 1.0472" axis="0 0 1" /> -->
+              <inertial pos="-0.00650946186307066 -1.52170692019338E-09 2.7910038724599E-09" mass="0.0127952179052056" fullinertia="7.00743774263552E-07 5.92152060742917E-07 5.92123674862296E-07 -2.50808859184526E-13 -4.83067761601916E-13 -1.10662095911008E-11" />
+              <geom class="visual" mesh="tail2_link"/>
+              <geom name="tail2_collision" class="collision" type="cylinder" size="0.0108 0.0108" pos="-0.00781 0 0" euler="0 1.57079632679 0"/>
+              <body name="tail3_virtual_link" pos="-0.0167 0 0" euler="0 0 0">
+                <!-- <joint name="tail3_pitch_joint" type="hinge" range="-1.0472 1.0472" axis="0 1 0" /> -->
+                <inertial pos="0 0 0" mass="0.0001" fullinertia="1e-9 1e-9 1e-9 0 0 0" />
+                <body name="tail3_link" pos="0 0 0" euler="0 0 0">
+                  <!-- <joint name="tail3_yaw_joint" type="hinge" range="-1.0472 1.0472" axis="0 0 1" /> -->
+                  <inertial pos="-0.00631416853552891 -4.82119415570748E-08 -7.91465742944197E-08" mass="0.0116835708764158" fullinertia="6.0668791411361E-07 5.11928508664374E-07 5.1192990570307E-07 -3.0889534578389E-12 -4.86924442197162E-12 2.46362720395388E-13" />
+                  <geom class="visual" mesh="tail3_link"/>
+                  <geom name="tail3_collision" class="collision" type="cylinder" size="0.0105 0.0105" pos="-0.00756 0 0" euler="0 1.57079632679 0"/>
+                  <body name="tail4_virtual_link" pos="-0.016 0 0" euler="0 0 0">
+                    <!-- <joint name="tail4_pitch_joint" type="hinge" range="-1.0472 1.0472" axis="0 1 0" /> -->
+                    <inertial pos="0 0 0" mass="0.0001" fullinertia="1e-9 1e-9 1e-9 0 0 0" />
+                    <body name="tail4_link" pos="0 0 0" euler="0 0 0">
+                      <!-- <joint name="tail4_yaw_joint" type="hinge" range="-1.0472 1.0472" axis="0 0 1" /> -->
+                      <inertial pos="-0.0061185438841842 -1.48748220199502E-08 9.01788682616811E-09" mass="0.0106347694237068" fullinertia="5.23074870443639E-07 4.40635446836679E-07 4.40551070538819E-07 -8.11977613395735E-13 3.04824638664323E-13 5.81788845198795E-12" />
+                      <geom class="visual" mesh="tail4_link"/>
+                      <geom name="tail4_collision" class="collision" type="cylinder" size="0.0102 0.0102" pos="-0.00731 0 0" euler="0 1.57079632679 0"/>
+                      <body name="tail5_virtual_link" pos="-0.0157 0 0" euler="0 0 0">
+                        <!-- <joint name="tail5_pitch_joint" type="hinge" range="-1.0472 1.0472" axis="0 1 0" /> -->
+                        <inertial pos="0 0 0" mass="0.0001" fullinertia="1e-9 1e-9 1e-9 0 0 0" />
+                        <body name="tail5_link" pos="0 0 0" euler="0 0 0">
+                          <!-- <joint name="tail5_yaw_joint" type="hinge" range="-1.0472 1.0472" axis="0 0 1" /> -->
+                          <inertial pos="-0.00590663030331451 -2.33051585113442E-08 -1.20618755539148E-08" mass="0.00985155554987781" fullinertia="4.66785983258564E-07 3.89047578750144E-07 3.89031984365247E-07 -1.04372443702653E-12 1.07564984089307E-13 -5.17550076333586E-12" />
+                          <geom class="visual" mesh="tail5_link"/>
+                          <geom name="tail5_collision" class="collision" type="cylinder" size="0.01 0.01" pos="-0.00706 0 0" euler="0 1.57079632679 0"/>
+                          <body name="tail6_virtual_link" pos="-0.0152 0 0" euler="0 0 0">
+                            <!-- <joint name="tail6_pitch_joint" type="hinge" range="-1.0472 1.0472" axis="0 1 0" /> -->
+                            <inertial pos="0 0 0" mass="0.0001" fullinertia="1e-9 1e-9 1e-9 0 0 0" />
+                            <body name="tail6_link" pos="0 0 0" euler="0 0 0">
+                              <!-- <joint name="tail6_yaw_joint" type="hinge" range="-1.0472 1.0472" axis="0 0 1" /> -->
+                              <inertial pos="-0.0056903437316127 5.41744728244087E-09 1.2834479590218E-09" mass="0.00923075165523409" fullinertia="4.22373239284678E-07 3.47612621110504E-07 3.47597874849156E-07 3.15975255616925E-13 9.81905658686649E-13 -5.09145044445086E-12" />
+                              <geom class="visual" mesh="tail6_link"/>
+                              <geom name="tail6_collision" class="collision" type="cylinder" size="0.0098 0.0098" pos="-0.00681 0 0" euler="0 1.57079632679 0"/>
+                              <body name="tail7_virtual_link" pos="-0.0147 0 0" euler="0 0 0">
+                                <!-- <joint name="tail7_pitch_joint" type="hinge" range="-1.0472 1.0472" axis="0 1 0" /> -->
+                                <inertial pos="0 0 0" mass="0.0001" fullinertia="1e-9 1e-9 1e-9 0 0 0" />
+                                <body name="tail7_link" pos="0 0 0" euler="0 0 0">
+                                  <!-- <joint name="tail7_yaw_joint" type="hinge" range="-1.0472 1.0472" axis="0 0 1" /> -->
+                                  <inertial pos="-0.00549512158168441 4.41705623466238E-10 5.92188553749651E-09" mass="0.0083927589340141" fullinertia="3.62504640761287E-07 2.97470779283463E-07 2.97471433861245E-07 5.27937408432459E-15 3.45073339124299E-13 -4.1907348517631E-12" />
+                                  <geom class="visual" mesh="tail7_link"/>
+                                  <geom name="tail7_collision" class="collision" type="cylinder" size="0.0095 0.0095" pos="-0.00656 0 0" euler="0 1.57079632679 0"/>
+                                  <body name="tail8_virtual_link" pos="-0.0144 0 0" euler="0 0 0">
+                                    <!-- <joint name="tail8_pitch_joint" type="hinge" range="-1.0472 1.0472" axis="0 1 0" /> -->
+                                    <inertial pos="0 0 0" mass="0.0001" fullinertia="1e-9 1e-9 1e-9 0 0 0" />
+                                    <body name="tail8_link" pos="0 0 0" euler="0 0 0">
+                                      <!-- <joint name="tail8_yaw_joint" type="hinge" range="-1.0472 1.0472" axis="0 0 1" /> -->
+                                      <inertial pos="-0.00563909552581265 4.20880061358098E-08 -1.77922774846628E-08" mass="0.00801677850255402" fullinertia="3.31236320661279E-07 2.7967143331277E-07 2.79664129565631E-07 1.88525085945086E-12 -6.1350591694735E-13 -5.43556752743582E-12" />
+                                      <geom class="visual" mesh="tail8_link"/>
+                                      <geom name="tail8_collision" class="collision" type="cylinder" size="0.0092 0.0092" pos="-0.00641 0 0" euler="0 1.57079632679 0"/>
+                                      <body name="tail9_virtual_link" pos="-0.0147 0 0" euler="0 0 0">
+                                        <!-- <joint name="tail9_pitch_joint" type="hinge" range="-1.0472 1.0472" axis="0 1 0" /> -->
+                                        <inertial pos="0 0 0" mass="0.0001" fullinertia="1e-9 1e-9 1e-9 0 0 0" />
+                                        <body name="tail9_link" pos="0 0 0" euler="0 0 0">
+                                          <!-- <joint name="tail9_yaw_joint" type="hinge" range="-1.0472 1.0472" axis="0 0 1" /> -->
+                                          <inertial pos="-0.00551185736109 -8.70025468335811E-10 -1.1744280548065E-08" mass="0.00782767270242887" fullinertia="3.07000053171084E-07 2.66907201950988E-07 2.66903344499661E-07 -3.31166362575087E-15 -5.04747137565905E-13 -2.47028550370464E-12" />
+                                          <geom class="visual" mesh="tail9_link"/>
+                                          <geom name="tail9_collision" class="collision" type="cylinder" size="0.009 0.00895" pos="-0.00636 0 0" euler="0 1.57079632679 0"/>
+                                          <body name="tail10_virtual_link" pos="-0.0146 0 0" euler="0 0 0">
+                                            <!-- <joint name="tail10_pitch_joint" type="hinge" range="-1.0472 1.0472" axis="0 1 0" /> -->
+                                            <inertial pos="0 0 0" mass="0.0001" fullinertia="1e-9 1e-9 1e-9 0 0 0" />
+                                            <body name="tail10_link" pos="0 0 0" euler="0 0 0">
+                                              <!-- <joint name="tail10_yaw_joint" type="hinge" range="-1.0472 1.0472" axis="0 0 1" /> -->
+                                              <inertial pos="-0.00518800969906508 -1.10405673769964E-08 -2.52233224307119E-08" mass="0.00666177522641977" fullinertia="2.3897663010197E-07 2.06527078390579E-07 2.06521274479418E-07 -3.77806868874636E-13 -8.43932517675259E-13 -1.29291438446809E-12" />
+                                              <geom class="visual" mesh="tail10_link"/>
+                                              <geom name="tail10_collision" class="collision" type="cylinder" size="0.0086 0.0086" pos="-0.00600 0 0" euler="0 1.57079632679 0"/>
+                                              <body name="tail11_virtual_link" pos="-0.0139 0 0" euler="0 0 0">
+                                                <!-- <joint name="tail11_pitch_joint" type="hinge" range="-1.0472 1.0472" axis="0 1 0" /> -->
+                                                <inertial pos="0 0 0" mass="0.0001" fullinertia="1e-9 1e-9 1e-9 0 0 0" />
+                                                <body name="tail11_link" pos="0 0 0" euler="0 0 0">
+                                                  <!-- <joint name="tail11_yaw_joint" type="hinge" range="-1.0472 1.0472" axis="0 0 1" /> -->
+                                                  <inertial pos="-0.00495915504044836 8.55362992935316E-09 5.3374045183574E-08" mass="0.0046207645314435" fullinertia="1.44477704901687E-07 1.4682737778813E-07 1.07695667986963E-07 1.71673320006815E-13 1.52603803639589E-12 -3.11141554202373E-14" />
+                                                  <geom class="visual" mesh="tail11_link"/>
+                                                  <geom name="tail11_collision" class="collision" type="cylinder" size="0.0077 0.0082" pos="-0.00546 0 0" euler="0 1.57079632679 0"/>
+                                                  <body name="tail12_virtual_link" pos="-0.011979 0 0" euler="0 0 0">
+                                                    <!-- <joint name="tail12_pitch_joint" type="hinge" range="-1.0472 1.0472" axis="0 1 0" /> -->
+                                                    <inertial pos="0 0 0" mass="0.0001" fullinertia="1e-9 1e-9 1e-9 0 0 0" />
+                                                    <body name="tail12_link" pos="0 0 0" euler="0 0 0">
+                                                      <!-- <joint name="tail12_yaw_joint" type="hinge" range="-1.0472 1.0472" axis="0 0 1" /> -->
+                                                      <inertial pos="-0.00591500067079281 -2.92924372681524E-07 4.29541290314361E-07" mass="0.00556653973765066" fullinertia="1.74072299338633E-07 1.54269355650383E-07 1.54216751886065E-07 5.73927385554313E-12 -9.67312946794018E-12 -1.52040940825198E-11" />
+                                                      <geom class="visual" mesh="tail12_link"/>
+                                                      <geom name="tail12_collision" class="collision" type="cylinder" size="0.008 0.008" pos="-0.00650 0 0" euler="0 1.57079632679 0"/>
+                                                    </body>
+                                                  </body>
+                                                </body>
+                                              </body>
+                                            </body>
+                                          </body>
+                                        </body>
+                                      </body>
+                                    </body>
+                                  </body>
+                                </body>
+                              </body>
+                            </body>
+                          </body>
+                        </body>
+                      </body>
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+
+      <!-- ==================== REAR LEFT LEG (rl) ==================== -->
+      <body name="rl_hip_link" pos="-0.041722 0.0335 -0.015186" euler="-0.0014526 -0.34907 0.00049681">
+        <joint name="rl_hip_joint" type="hinge" range="-0.49 0.77" axis="1 -0.00046685 0"/>
+        <inertial pos="-0.045138 0.013793 -0.000017" mass="0.374" fullinertia="0.000168286 0.000185931 0.000184126 0.000007536 0.000000345 0.000000002"/>
+        <!-- <geom class="visual" type="cylinder" size="0.01 0.02" pos="-0.045 0.024 0" euler="0 0 0"/> -->
+        <geom name="rl_hip_collision" class="collision" type="cylinder" size="0.032 0.035" pos="-0.045 0.024 0" euler="0 1.57079632679 0"/>
+        <body name="rl_thigh_link" pos="-0.046282 0.039422 5.0587E-05" euler="0 0.34907 0">
+          <joint name="rl_thigh_joint" type="hinge" range="-0.71 1.77" axis="0 1 0.001365"/>
+          <inertial pos="0.008049 -0.015362 -0.059444" mass="0.414" fullinertia="0.000341578 0.000290312 0.000218302 -0.000003441 0.000023433 -0.000011479"/>
+          <geom class="visual" type="cylinder" size="0.01 0.04" pos="0.008 -0.015 -0.061" euler="0 0 0"/>
+          <geom name="rl_thigh_collision" class="collision" type="cylinder" size="0.030 0.03" pos="0.008 -0.015 -0.061" euler="1.57079632679 0 0"/>
+          <body name="rl_calf_link" pos="0.023309 0.0090594 -0.11679" euler="0 0 0">
+            <joint name="rl_calf_joint" type="hinge" range="0 1.56" axis="0 1 -0.001365"/>
+            <inertial pos="-0.018059 -0.003444 -0.027577" mass="0.048" fullinertia="0.000035198 0.000036916 0.000005612 0.000000009 -0.000003707 -0.000000131"/>
+            <geom class="visual" type="box" size="0.01 0.01 0.03" pos="-0.019375 0.0000531 -0.038886" euler="3.1375032 -0.1227633 -1.5515043"/>
+            <geom name="rl_calf_collision" class="collision" type="box" size="0.0115 0.015 0.0275" pos="-0.019375 0.0000531 -0.038886" euler="3.1375032 -0.1227633 -1.5515043"/>
+            <body name="rl_tarsus_link" pos="-0.01875 0.00010616 -0.077772" euler="0 0 0">
+              <joint name="rl_tarsus_joint" type="hinge" range="-3.14159265358979 3.14159265358979" axis="0 -1 -0.001365"/>
+              <inertial pos="0.001447 0.000898 -0.022124" mass="0.032" fullinertia="0.000017088 0.000018218 0.000002865 -0.000000745 0.000003837 0.000002996"/>
+              <geom class="visual" type="box" size="0.007 0.01 0.03" pos="0.003795 0.0052055 -0.030978" euler="-2.9552241 0.2431544 -1.6008232"/>
+              <geom name="rl_tarsus_collision" class="collision" type="box" size="0.007 0.01 0.03" pos="0.003795 0.0052055 -0.030978" euler="-2.9552241 0.2431544 -1.6008232"/>
+              <body name="rl_foot_link" pos="0.01159 0.010411 -0.061956" euler="0 0 0">
+                <inertial pos="-0.000299 0.000002 0.001204" mass="0.005" fullinertia="0.000000119 0.000000115 0.000000172 0.000000000 -0.000000014 0.000000000"/>
+                <geom class="visual" mesh="rl_foot_link"/>
+                <geom name="rl_foot_collision" class="collision" type="mesh" mesh="rl_foot_link"/>
+                <site name="rl" pos="0 0.0055908 -0.051933" type="sphere" size="0.023" group="5"/>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+
+      <!-- ==================== REAR RIGHT LEG (rr) ==================== -->
+      <body name="rr_hip_link" pos="-0.041722 -0.0335 -0.015186" euler="-0.0014526 -0.34907 0.00049681">
+        <joint name="rr_hip_joint" type="hinge" range="-0.49 0.77 " axis="-1 0.00046685 0"/>
+        <inertial pos="-0.045138 -0.013793 -0.000017" mass="0.374" fullinertia="0.000168286 0.000185931 0.000184126 -0.000007536 0.000000345 -0.000000002"/>
+        <!-- <geom class="visual" type="cylinder" size="0.01 0.02" pos="-0.045 -0.024 0" euler="0 0 0"/> -->
+        <geom name="rr_hip_collision" class="collision" type="cylinder" size="0.032 0.035" pos="-0.045 -0.024 0" euler="1.57079632679 0 0"/>
+        <body name="rr_thigh_link" pos="-0.046318 -0.039378 -5.0537E-05" euler="0 0.34907 0">
+          <joint name="rr_thigh_joint" type="hinge" range="-0.71 1.77 " axis="0 1 0.001365"/>
+          <inertial pos="0.008049 0.015362 -0.059444" mass="0.414" fullinertia="0.000341578 0.000290312 0.000218302 0.000003441 0.000023433 0.000011479"/>
+          <geom class="visual" type="cylinder" size="0.01 0.04" pos="0.008 0.015 -0.061" euler="0 0 0"/>
+          <geom name="rr_thigh_collision" class="collision" type="cylinder" size="0.030 0.0325" pos="0.008 0.015 -0.061" euler="1.57079632679 0 0"/>
+          <body name="rr_calf_link" pos="0.022904 -0.0087404 -0.1169" euler="0 0 0">
+
+            <joint name="rr_calf_joint" type="hinge" range="0 1.56" axis="0 1 0.001365"/>
+
+            <inertial pos="-0.018059 0.003444 -0.027577" mass="0.048" fullinertia="0.000035198 0.000036916 0.000005612 -0.000000009 -0.000003707 0.000000131"/>
+            <geom class="visual" type="box" size="0.01 0.01 0.03" pos="-0.019375 -0.0000531 -0.038886" euler="-3.1375032 -0.1227633 1.5515043"/>
+            <geom name="rr_calf_collision" class="collision" type="box" size="0.0115 0.015 0.0275" pos="-0.019375 -0.0000531 -0.038886" euler="-3.1375032 -0.1227633 1.5515043"/>
+            <body name="rr_tarsus_link" pos="-0.019514 0 -0.077584" euler="0 0 0">
+              <joint name="rr_tarsus_joint" type="hinge" range="-3.14159265358979 3.14159265358979" axis="0 -1 -0.001365"/>
+              <inertial pos="0.001447 -0.000898 -0.022124" mass="0.032" fullinertia="0.000017088 0.000018218 0.000002865 0.000000745 0.000003837 -0.000002996"/>
+              <geom class="visual" type="box" size="0.007 0.01 0.03" pos="0.003795 -0.0052055 -0.030978" euler="2.9552241 0.2431544 1.6008232"/>
+              <geom name="rr_tarsus_collision" class="collision" type="box" size="0.007 0.01 0.03" pos="0.003795 -0.0052055 -0.030978" euler="2.9552241 0.2431544 1.6008232"/>
+              <body name="rr_foot_link" pos="0.011375 -0.010242 -0.062024" euler="0 0 0">
+                <inertial pos="-0.000299 -0.000002 0.001204" mass="0.005" fullinertia="0.000000119 0.000000115 0.000000172 0.000000000 -0.000000014 0.000000000"/>
+                <geom class="visual" mesh="rr_foot_link"/>
+                <geom name="rr_foot_collision" class="collision" type="mesh" mesh="rr_foot_link"/>
+                <site name="rr" pos="0 0.0055908 -0.051933" type="sphere" size="0.023" group="5"/>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+
+      <!-- ==================== WAIST CHAIN: roll -> pitch -> yaw ==================== -->
+      <body name="waist_roll_link" pos="0.055059 0 0.028279" euler="-0.001365 0 0">
+        <!-- <joint name="waist_roll_joint" type="hinge" range="-1 1" axis="1 0 0"/> -->
+        <inertial pos="0.039275 -0.004052 0.000334" mass="0.337" fullinertia="0.000180303 0.000178761 0.000189349 0.000006126 -0.000000251 0.000002575"/>
+        <!-- <geom class="visual" type="cylinder" size="0.01 0.03" pos="0.041 0 0" euler="0 1.57079632679 0"/> -->
+        <geom name="waist_roll_collision" class="collision" type="cylinder" size="0.03 0.035" pos="0.041 0 0" euler="1.57079632679 0 0"/>
+
+        <body name="waist_pitch_link" pos="0.0415 -0.0235 0" euler="0 0 0">
+          <!-- <joint name="waist_pitch_joint" type="hinge" range="0 0.24" axis="0 1 0.001365"/> -->
+          <inertial pos="0.056619 0.022538 -0.039921" mass="1.098" fullinertia="0.002254678 0.002188164 0.001367514 -0.000032049 -0.000089799 0.000042627"/>
+          <!-- <geom class="visual" type="cylinder" size="0.02 0.03" pos="0.063 0.0235 0" euler="0 0 0"/> -->
+          <!-- <geom pos="0.055 0.0235 -0.064" euler="0 0 0" contype="0" conaffinity="0" group="2" rgba="0.15 0.15 0.15 1" type="box" size="0.045 0.05 0.03"/> -->
+          <geom name="waist_pitch_collision" class="collision" type="cylinder" size="0.032 0.035" pos="0.063 0.0235 0" euler="0 0 0"/>
+          <geom name="waist_pitch_collision2" class="collision" type="box" size="0.045 0.05 0.03" pos="0.055 0.0235 -0.064" euler="0 0 0"/>
+
+          <body name="waist_yaw_link" pos="0.0635 0.023463 0.026782" euler="0 0 0">
+            <!-- <joint name="waist_yaw_joint" type="hinge" range="-1.2 1.2" axis="0 -0.001365 1"/> -->
+            <inertial pos="0.093599 0.001895 -0.063865" mass="1.264" fullinertia="0.002513037 0.002998499 0.002016199 0.000068812 0.000977446 -0.000092237"/>
+            <geom class="visual" type="cylinder" size="0.01 0.06" pos="0.003111 0.002447 -0.023828" euler="0 1.570796 0"/>
+            <geom name="waist_yaw_collision1" class="collision" type="cylinder" size="0.031 0.034" pos="0.063111 0.002447 -0.023828" euler="1.570796 0 0"/>
+            <geom name="waist_yaw_collision2" class="collision" type="cylinder" size="0.040 0.044" pos="0.111 0.000027 -0.085968" euler="1.570796 0 0"/>
+
+            <!-- ==================== NECK + HEAD CHAIN ==================== -->
+            <body name="neck_pitch_link" pos="0.063536 0.031281 -0.022505" euler="0 0 0">
+              <!-- <joint name="neck_pitch_joint" type="hinge" range="-0.58 0.45" axis="0 1 0"/> -->
+              <inertial pos="0.045423 -0.027662 0.0289" mass="0.295" fullinertia="0.000146524 0.000165504 0.000176361 0.000028014 -0.000031716 0.000017796"/>
+              <!-- <geom class="visual" type="cylinder" size="0.02 0.03" pos="0.047501 -0.02831 0.028921" euler="-3.1415915 -1.005106 -3.1415915"/> -->
+              <geom name="neck_pitch_collision" class="collision" type="cylinder" size="0.028 0.025" pos="0.047501 -0.02831 0.028921" euler="-3.1415915 -1.005106 -3.1415915"/>
+
+              <body name="head_roll_link" pos="0.067501 -0.02831 0.042889" euler="0 -0.56569 0">
+                <!-- <joint name="head_roll_joint" type="hinge" range="-3.14159265358979 3.14159265358979" axis="-1 0.00073162 0"/> -->
+                <inertial pos="0.01026 -0.003837 -0.000734" mass="0.274" fullinertia="0.000110718 0.000114116 0.000100935 -0.000000100 -0.000000325 0.000000559"/>
+                <geom class="visual" type="cylinder" size="0.01 0.03" pos="-0.011662 -0.004 -0.005801" euler="0 1.570796 0"/>
+                <geom name="head_roll_collision" class="collision" type="cylinder" size="0.026 0.025" pos="0.011662 -0.004 -0.005801" euler="0 0 0"/>
+
+                <body name="head_yaw_link" pos="0.015514 0.0010134 0.014495" euler="0 0 0">
+                  <!-- <joint name="head_yaw_joint" type="hinge" range="-3.14159265358979 3.14159265358979" axis="0 0 1"/> -->
+                  <inertial pos="-0.013963 0.004899 0.029247" mass="0.274" fullinertia="0.000114052 0.000100887 0.000110740 0.000000468 0.000000028 0.000000570"/>
+                  <!-- <geom class="visual" type="cylinder" size="0.02 0.03" pos="-0.014338 0.006 0.029199" euler="1.570796 0 0"/> -->
+                  <geom name="head_yaw_collision" class="collision" type="cylinder" size="0.025 0.03" pos="-0.014338 0.006 0.029199" euler="1.570796 0 0"/>
+
+                  <body name="head_pitch_link" pos="-0.0145282626 -0.0215314491 0.0289972420" euler="0 0.56570 0">
+                    <!-- <joint name="head_pitch_joint" type="hinge" range="-1.7 0.5" axis="0 1 0"/> -->
+                    <inertial pos="0.007085 0.00162 0.010054" mass="0.025" fullinertia="0.000006091 0.000008226 0.000004837 -0.000000973 -0.000002297 -0.000001274"/>
+                    <geom class="visual" type="sphere" size="0.02" pos="0.05 0.01 0.020032" euler="3.1415926 1.12173 3.1415926"/>
+                    <geom name="head_pitch_collision" class="collision" type="cylinder" size="0.04 0.06" pos="0.05 0.01 0.050032" euler="3.1415926 1.12173 3.1415926"/>
+                  </body>
+                </body>
+              </body>
+            </body>
+
+            <!-- ==================== FRONT LEFT LEG (fl) ==================== -->
+            <body name="fl_hip_pitch_link" pos="0.11134 0.040867 -0.085936" euler="0 0 0">
+              <joint name="fl_hip_pitch_joint" type="hinge" range="-0.97 3.14159265358979 " axis="0 -1 -0.001365"/>
+              <inertial pos="-0.036249 0.026796 -0.000863" mass="0.266" fullinertia="0.000094796 0.000119621 0.000125834 0.000009648 -0.000000375 0.000000295"/>
+              <!-- <geom class="visual" type="sphere" size="0.01" pos="-0.036 0.027114 0.000032" euler="0 1.570796 0"/> -->
+              <geom name="fl_hip_pitch_collision" class="collision" type="cylinder" size="0.025 0.0315" pos="-0.036 0.027114 0.000032" euler="0 1.570796 0"/>
+              <body name="fl_thigh_roll_link" pos="-0.0205 0.028 3.8219E-05" euler="0 0 0">
+                <joint name="fl_thigh_roll_joint" type="hinge" range="-0.18 3.14159265358979" axis="0.99966 3.5842E-05 0.026258"/>
+                <inertial pos="0.019147 0.004458 -0.03082" mass="0.087" fullinertia="0.000074448 0.000076387 0.000013919 -0.000002300 0.000014306 0.000011338"/>
+                <geom class="visual" type="cylinder" size="0.01 0.03" pos="0.0218 0.002037 -0.016968" euler="0 0 0"/>
+                <geom name="fl_thigh_collision" class="collision" type="box" size="0.0025 0.0175 0.03" pos="0.0218 0.002037 -0.016968" euler="0 0 0"/>
+                <body name="fl_calf_link" pos="0.0235 0.0034955 -0.069995" euler="0 0 0">
+                  <joint name="fl_calf_joint" type="hinge" range="-1.93 1.82 " axis="0 -1 -0.001365"/>
+                  <inertial pos="0.001263 -0.012283 -0.03026" mass="0.462" fullinertia="0.000780649 0.000757818 0.000138689 -0.000002898 0.000027933 0.000060391"/>
+                  <geom class="visual" type="cylinder" size="0.01 0.05" pos="0.00202 -0.00848 -0.060938" euler="0 0 0"/>
+                  <geom name="fl_calf_collision1" class="collision" type="cylinder" size="0.016 0.036" pos="0.00202 -0.00848 -0.060938" euler="0 0 0"/>
+                  <geom name="fl_calf_collision2" class="collision" type="cylinder" size="0.023 0.0285" pos="0.00202 -0.01408 0.000032" euler="1.570796 0 0"/>
+                  <body name="fl_tarsus_link" pos="0.0040403 -0.0022336 -0.12194" euler="0 0 0">
+                    <joint name="fl_tarsus_joint" type="hinge" range="-0.03 1.49 " axis="0 1 0.001365"/>
+                    <inertial pos="0 -0.005009 -0.026597" mass="0.067" fullinertia="0.000017528 0.000015233 0.000008400 0.000000000 -0.000000001 -0.000000662"/>
+                    <geom class="visual" type="cylinder" size="0.01 0.02" pos="0 -0.003688 -0.020942" euler="0 0 0"/>
+                    <geom name="fl_tarsus_collision" class="collision" type="cylinder" size="0.018 0.026" pos="0 -0.003688 -0.020942" euler="0 0 0"/>
+                    <body name="fl_foot_link" pos="0 -0.005449 -0.051948" euler="0 0 0">
+                      <inertial pos="0 0.000039 0.001272" mass="0.005" fullinertia="0.000000119 0.000000115 0.000000172 0.000000000 -0.000000014 0.000000000"/>
+                      <geom class="visual" mesh="fl_foot_link" pos="0.000037 0.000032 0" euler="0 0 0"/>
+                      <geom name="fl_foot_collision" class="collision" type="mesh" mesh="fl_foot_link"/>
+                      <site name="fl" pos="0 -0.005449 -0.051948" type="sphere" size="0.023" group="5"/>
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+
+            <!-- ==================== FRONT RIGHT LEG (fr) ==================== -->
+            <body name="fr_hip_pitch_link" pos="0.11134 -0.040633 -0.086047" euler="0 0 0">
+              <joint name="fr_hip_pitch_joint" type="hinge" range="-0.97 3.14159265358979" axis="0 -1 -0.001365"/>
+              <inertial pos="-0.036249 -0.026722 -0.000863" mass="0.266" fullinertia="0.000094796 0.000119621 0.000125834 -0.000009648 -0.000000375 -0.000000295"/>
+              <!-- <geom class="visual" type="sphere" size="0.01" pos="-0.036 -0.02704 0.000032" euler="0 1.570796 0"/> -->
+              <geom name="fr_hip_pitch_collision" class="collision" type="cylinder" size="0.025 0.0315" pos="-0.036 -0.02704 0.000032" euler="0 1.570796 0"/>
+              <body name="fr_thigh_roll_link" pos="-0.020493 -0.027999 -0.00057652" euler="0 0 0">
+                <joint name="fr_thigh_roll_joint" type="hinge" range="-0.18 3.14159265358979 " axis="-0.99966 3.5842E-05 -0.026258"/>
+                <inertial pos="0.019147 -0.004384 -0.03082" mass="0.087" fullinertia="0.000074448 0.000076387 0.000013919 0.000002300 0.000014306 -0.000011338"/>
+                <geom class="visual" type="cylinder" size="0.01 0.03" pos="0.0218 -0.001963 -0.016968" euler="0 0 0"/>
+                <geom name="fr_thigh_collision" class="collision" type="box" size="0.0025 0.0175 0.03" pos="0.0218 -0.001963 -0.016968" euler="0 0 0"/>
+                <body name="fr_calf_link" pos="0.02533 -0.0033053 -0.069363" euler="0 0 0">
+                  <joint name="fr_calf_joint" type="hinge" range="-1.93 1.82" axis="0 -1 -0.001365"/>
+                  <inertial pos="0.001263 0.012357 -0.03026" mass="0.462" fullinertia="0.000780649 0.000757818 0.000138689 0.000002898 0.000027933 -0.000060391"/>
+                  <geom class="visual" type="cylinder" size="0.01 0.05" pos="0.00202 0.008554 -0.060938" euler="0 0 0"/>
+                  <geom name="fr_calf_collision1" class="collision" type="cylinder" size="0.016 0.036" pos="0.00202 0.008554 -0.060938" euler="0 0 0"/>
+                  <geom name="fr_calf_collision2" class="collision" type="cylinder" size="0.023 0.0285" pos="0.00202 0.014154 0.000032" euler="1.570796 0 0"/>
+                  <body name="fr_tarsus_link" pos="0.0055464 0.0025664 -0.12187" euler="0 0 0">
+                    <joint name="fr_tarsus_joint" type="hinge" range="-0.03 1.49 " axis="0 1 0.001365"/>
+                    <inertial pos="0 0.005083 -0.026597" mass="0.067" fullinertia="0.000017528 0.000015233 0.000008400 0.000000000 -0.000000001 0.000000662"/>
+                    <geom class="visual" type="cylinder" size="0.01 0.02" pos="0 0.003832 -0.020935" euler="0 0 0"/>
+                    <geom name="fr_tarsus_collision" class="collision" type="cylinder" size="0.018 0.026" pos="0 0.003832 -0.020935" euler="0 0 0"/>
+                    <body name="fr_foot_link" pos="0 0.0055908 -0.051933" euler="0 0 0">
+                      <inertial pos="0 0.000035 0.001272" mass="0.005" fullinertia="0.000000119 0.000000115 0.000000172 0.000000000 -0.000000014 0.000000000"/>
+                      <geom class="visual" mesh="fr_foot_link" pos="0.000037 0.000032 0" euler="0 0 0"/>
+                      <geom name="fr_foot_collision" class="collision" type="mesh" mesh="fr_foot_link"/>
+                      <site name="fr" pos="0 0.0055908 -0.051933" type="sphere" size="0.023" group="5"/>
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+
+  <!-- <sensor>
+    <gyro name="imu_ang_vel" site="imu"/>
+    <velocimeter name="imu_lin_vel" site="imu"/>
+  </sensor> -->
+  <equality>
+    <joint
+      name="rl_tarsus_mimic"
+      joint1="rl_tarsus_joint"
+      joint2="rl_calf_joint"
+      polycoef="0 1.0 0 0 0"
+    />
+    <joint
+      name="rr_tarsus_mimic"
+      joint1="rr_tarsus_joint"
+      joint2="rr_calf_joint"
+      polycoef="0 1.0 0 0 0"
+    />
+  </equality>
+</mujoco>

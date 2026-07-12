@@ -20,7 +20,8 @@ ROBOT_XML_DICT = {
     "booster_k1": ASSET_ROOT / "booster_k1" / "K1_serial.xml",
     "pnd_adam_lite": ASSET_ROOT / "pnd_adam_lite" / "adam_lite.xml",
     "myrobot":ASSET_ROOT / "myrobot" / "meshes"/"myrobot.xml",
-    "marsdog": ASSET_ROOT / "marsdog" / "meshes" / "marsdog.xml",
+    "marsdog": ASSET_ROOT / "marsdog" / "meshes" / "scene.xml",
+    "unitree_go1": ASSET_ROOT / "unitree_go1" / "go1.xml",
 }
 
 IK_CONFIG_DICT = {
@@ -52,7 +53,8 @@ IK_CONFIG_DICT = {
         "myrobot": IK_CONFIG_ROOT / "bvh_to_myrobot.json",
     },
     "dog_bvh":{
-        "marsdog": IK_CONFIG_ROOT / "bvh_to_marsdog.json",
+        "marsdog": IK_CONFIG_ROOT / "bvh_to_dison.json",
+        "unitree_go1": IK_CONFIG_ROOT / "bvh_to_go1.json",
     },
     "fbx":{
         "unitree_g1": IK_CONFIG_ROOT / "fbx_to_g1.json",
@@ -81,6 +83,7 @@ ROBOT_BASE_DICT = {
     "pnd_adam_lite": "pelvis",
     "myrobot": "base_link",
     "marsdog": "base_link",
+    "unitree_go1": "trunk",
 }
 
 VIEWER_CAM_DISTANCE_DICT = {
@@ -100,4 +103,5 @@ VIEWER_CAM_DISTANCE_DICT = {
     "pnd_adam_lite": 2.0,
     "myrobot": 1.0,
     "marsdog": 1.5,
+    "unitree_go1": 1.5,
 }
