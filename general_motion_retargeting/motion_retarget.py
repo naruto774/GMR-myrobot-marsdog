@@ -105,7 +105,9 @@ class GeneralMotionRetargeting:
         self.ground_offset = 0.0
     #任务配置FrameTask
     def setup_retarget_configuration(self):
-        self.configuration = mink.Configuration(self.model)
+        # Prefer the first keyframe (e.g. Go2 "home") when qpos0 violates joint limits.
+        init_q = self.model.key_qpos[0].copy() if self.model.nkey > 0 else None
+        self.configuration = mink.Configuration(self.model, q=init_q)
     
         self.tasks1 = []
         self.tasks2 = []

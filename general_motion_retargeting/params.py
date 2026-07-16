@@ -22,6 +22,7 @@ ROBOT_XML_DICT = {
     "myrobot":ASSET_ROOT / "myrobot" / "meshes"/"myrobot.xml",
     "marsdog": ASSET_ROOT / "marsdog" / "meshes" / "scene.xml",
     "unitree_go1": ASSET_ROOT / "unitree_go1" / "go1.xml",
+    "unitree_go2": ASSET_ROOT / "unitree_go2" /"mjcf"/ "go2.xml",
 }
 
 IK_CONFIG_DICT = {
@@ -53,8 +54,9 @@ IK_CONFIG_DICT = {
         "myrobot": IK_CONFIG_ROOT / "bvh_to_myrobot.json",
     },
     "dog_bvh":{
-        "marsdog": IK_CONFIG_ROOT / "bvh_to_dison.json",
+        "marsdog": IK_CONFIG_ROOT / "bvh_to_cat.json",
         "unitree_go1": IK_CONFIG_ROOT / "bvh_to_go1.json",
+        "unitree_go2": IK_CONFIG_ROOT / "bvh_to_go2.json",
     },
     "fbx":{
         "unitree_g1": IK_CONFIG_ROOT / "fbx_to_g1.json",
@@ -84,6 +86,7 @@ ROBOT_BASE_DICT = {
     "myrobot": "base_link",
     "marsdog": "base_link",
     "unitree_go1": "trunk",
+    "unitree_go2": "base_link",
 }
 
 VIEWER_CAM_DISTANCE_DICT = {
@@ -104,4 +107,5 @@ VIEWER_CAM_DISTANCE_DICT = {
     "myrobot": 1.0,
     "marsdog": 1.5,
     "unitree_go1": 1.5,
+    "unitree_go2": 1.5,
 }

@@ -26,7 +26,7 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--robot",
-        choices=["marsdog", "unitree_go1"],
+        choices=["marsdog", "unitree_go1", "unitree_go2"],
         default="marsdog",
     )
     parser.add_argument(
@@ -74,8 +74,8 @@ if __name__ == "__main__":
         args.bvh_file,
         robot_body_length=args.robot_body_length,
     )
-    if args.robot == "marsdog":
-        dog_frames = apply_marsdog_axis_correction_to_frames(dog_frames)
+    
+    dog_frames = apply_marsdog_axis_correction_to_frames(dog_frames)
 
     motion_fps = args.motion_fps if args.motion_fps is not None else bvh_fps
 
@@ -83,6 +83,7 @@ if __name__ == "__main__":
         src_human="dog_bvh",
         tgt_robot=args.robot,
         actual_human_height=actual_body_length,
+        use_velocity_limit=False, 
     )
 
     robot_motion_viewer = RobotMotionViewer(

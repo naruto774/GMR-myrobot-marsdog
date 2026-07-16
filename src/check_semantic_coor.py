@@ -5,7 +5,7 @@ from general_motion_retargeting.utils.marsdog_axis import apply_marsdog_axis_cor
 def unit(v):
     return v / (np.linalg.norm(v) + 1e-8)
 
-frames, _, _ = load_dog_bvh_file("assets/bvh/tpose-clean-axis.bvh")
+frames, _, _ = load_dog_bvh_file("assets/bvh/3331-clean.bvh")
 frames = apply_marsdog_axis_correction_to_frames(frames)
 
 pose = frames[0]
